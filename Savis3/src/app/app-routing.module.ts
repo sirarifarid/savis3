@@ -1,8 +1,10 @@
 import { NgModule } from "@angular/core";
 import { Routes, RouterModule } from "@angular/router";
+// import { OneProportionComponent } from "./one-proportion/one-proportion.component";
+import { TempComponent } from "./temp/temp.component";
 
 const routes: Routes = [
-    // {path: '', component: MainLayoutComponent, children: [] }
+    {path: '', component: TempComponent, children: [] }
 ]
 
 @NgModule({

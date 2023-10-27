@@ -1,0 +1,32 @@
+<nav id="navbar">
+    <h1 class="logo"><a class="text-primary">SAVIS 3</a></h1>
+</nav>
+
+<div class="chart-container">
+
+    <!-- Labels and Inputs -->
+    <div class="inputs-section">
+      <div class="input-group" *ngFor="let label of barChartLabels; let i = index">
+        <label>{{ label }}</label>
+        <input type="range" min="0" max="100" (change)="updateChartValue(i, $any($event.target).value)">
+        <input type="number" min="0" max="100" [(ngModel)]="barChartData[0].data[i]" (change)="updateChartValue(i, barChartData[0].data[i])">
+      </div>
+    </div>
+
+    <!-- Graph -->
+    <div class="chart-section">
+      <canvas baseChart 
+              [datasets]="barChartData"
+              [labels]="barChartLabels"
+              [options]="barChartOptions"
+              [type]="'bar'"
+              class="chart">
+      </canvas>
+    </div>
+</div>
+
+<footer id="main-footer" class="bg-dark text-center py-1">
+    <div class="container">
+      <p>Copyright ©2019  CSUS. All Rights Reserved.</p>
+    </div>
+</footer>
