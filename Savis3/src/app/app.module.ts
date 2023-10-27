@@ -4,10 +4,12 @@ import { BrowserModule } from '@angular/platform-browser';
 import { AppComponent } from './app.component';
 
 import { HttpClientModule } from '@angular/common/http';
+import { OneProportionComponent } from './one-proportion/one-proportion.component';
 
 @NgModule({
   declarations: [
     AppComponent,
+    OneProportionComponent,
   ],
   imports: [
     BrowserModule,
