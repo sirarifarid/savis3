@@ -8,6 +8,9 @@
       "schematics": {
         "@schematics/angular:component": {
           "style": "scss"
+        },
+        "@schematics/angular:application": {
+          "strict": true
         }
       },
       "root": "",
@@ -17,12 +20,10 @@
         "build": {
           "builder": "@angular-devkit/build-angular:browser",
           "options": {
-            "outputPath": "dist/savis3",
+            "outputPath": "dist/Savis3",
             "index": "src/index.html",
             "main": "src/main.ts",
-            "polyfills": [
-              "zone.js"
-            ],
+            "polyfills": "src/polyfills.ts",
             "tsConfig": "tsconfig.app.json",
             "inlineStyleLanguage": "scss",
             "assets": [
@@ -46,6 +47,12 @@
                   "type": "anyComponentStyle",
                   "maximumWarning": "2kb",
                   "maximumError": "4kb"
+                }
+              ],
+              "fileReplacements": [
+                {
+                  "replace": "src/environments/environment.ts",
+                  "with": "src/environments/environment.prod.ts"
                 }
               ],
               "outputHashing": "all"
@@ -80,28 +87,33 @@
           }
         },
         "test": {
-          "builder": "@angular-devkit/build-angular:karma",
+          "builder": "@angular-builders/jest:run",
           "options": {
-            "polyfills": [
-              "zone.js",
-              "zone.js/testing"
-            ],
+            "main": "src/test-setup.ts",
+            "polyfills": "src/polyfills.ts",
             "tsConfig": "tsconfig.spec.json",
-            "inlineStyleLanguage": "scss",
             "assets": [
               "src/favicon.ico",
               "src/assets"
             ],
             "styles": [
-              "src/styles.scss"
+              "src/styles.css"
             ],
             "scripts": []
+          }
+        },
+        "lint": {
+          "builder": "@angular-eslint/builder:lint",
+          "options": {
+            "eslintConfig": ".eslintrc.json",
+            "lintFilePatterns": ["src/**/*.ts", "src/**/*.html"]
           }
         }
       }
     }
   },
+  "defaultProject": "Savis3",
   "cli": {
-    "analytics": false
+    "defaultCollection": "@angular-eslint/schematics"
   }
 }
