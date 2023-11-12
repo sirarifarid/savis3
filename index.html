@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Login Form</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <div class="navigation">
+      <h1>SAVIS</h1>
+    </div>
+
+    <div class="login-form">
+      <h4>login</h4>
+      <form action="/login" method="post">
+        <h6>Email</h6>
+        <input type="email" name="email" id="email-login" />
+        <h6>Password</h6>
+        <input type="password" name="password" id="password-login" />
+        <button type="submit" id="login-btn">LOGIN</button>
+      </form>
+      <p>Don't have an account? <a href="../Signup/signup.html">Sign Up</a></p>
+    </div>
+    <div class="footer">
+      <footer>
+        <p class="copyright">Copyright 2023 CSUS. All Rights Reserved.</p>
+      </footer>
+    </div>
+    <script type="module">
+      // Import the functions you need from the SDKs you need
+      import { initializeApp } from "https://www.gstatic.com/firebasejs/10.5.2/firebase-app.js";
+      // TODO: Add SDKs for Firebase products that you want to use
+      // https://firebase.google.com/docs/web/setup#available-libraries
+      import {
+        getAuth,
+        createUserWithEmailAndPassword,
+        signInWithEmailAndPassword,
+      } from "https://www.gstatic.com/firebasejs/10.5.2/firebase-auth.js";
+
+      // Your web app's Firebase configuration
+      const firebaseConfig = {
+        apiKey: "AIzaSyBAJQ252CB1HqMxuCJ7BxC_pjwlJEQXu3A",
+        authDomain: "savias-c1f4d.firebaseapp.com",
+        projectId: "savias-c1f4d",
+        storageBucket: "savias-c1f4d.appspot.com",
+        messagingSenderId: "514405589674",
+        appId: "1:514405589674:web:60f47a48ebe8063394a6d3",
+      };
+
+      // Initialize Firebase
+      const app = initializeApp(firebaseConfig);
+      const auth = getAuth();
+
+      function validatePassword(password) {
+        // Password must be at least 8 characters long
+        if (password.length < 8) {
+          return false;
+        }
+
+        // Password is valid
+        return true;
+      }
+
+      function validateEmail(email) {
+        // Email must be valid
+        if (!email.includes("@")) {
+          return false;
+        }
+
+        // Email is valid
+        return true;
+      }
+      // Login function
+      function login(email, password) {
+        signInWithEmailAndPassword(auth, email, password)
+          .then((userCredential) => {
+            // Signed in
+            const user = userCredential.user;
+            window.location.href = "../Home/home.html";
+          })
+          .catch((error) => {
+            const errorCode = error.code;
+            const errorMessage = error.message;
+            console.log(errorCode, errorMessage);
+          });
+      }
+      const loginButton = document.getElementById("login-btn");
+      loginButton.addEventListener("click", (e) => {
+        e.preventDefault();
+        const emailLogin = document.getElementById("email-login").value;
+        const passwordLogin = document.getElementById("password-login").value;
+
+        if (validateEmail(emailLogin) && validatePassword(passwordLogin)) {
+          console.log(emailLogin, passwordLogin);
+          login(emailLogin, passwordLogin);
+        } else {
+          alert("Invalid form");
+        }
+      });
+    </script>
+  </body>
+</html>

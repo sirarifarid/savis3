@@ -1,0 +1,210 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <title>SAVIS Sign Up</title>
+    <link rel="stylesheet" href="style.css" />
+    <header>
+      <h1>SAVIS</h1>
+    </header>
+  </head>
+  <body>
+    <section class="container forms">
+      <div class="form login">
+        <div class="form-content">
+          <h1>Sign Up</h1>
+
+          <form action="#">
+            <div class="field input-field">
+              <input
+                type="name"
+                placeholder="First Name"
+                class="input"
+                id="firstName-signup"
+              />
+            </div>
+            <div class="field input-field">
+              <input
+                type="name"
+                placeholder="Last Name"
+                class="input"
+                id="lastName-signup"
+              />
+            </div>
+            <div class="field input-field">
+              <input
+                type="email"
+                placeholder="Email"
+                class="input"
+                id="email-signup"
+              />
+            </div>
+            <div class="field input-field">
+              <input
+                type="password"
+                placeholder="Password"
+                class="password"
+                id="password-signup"
+              />
+            </div>
+            <div class="field input-field">
+              <input
+                type="password"
+                placeholder="Retype Password"
+                class="password"
+                id="confirmPassword-signup"
+              />
+            </div>
+            <div>
+              <button type="button" class="button-field" id="signup-btn">
+                Sign Up
+              </button>
+            </div>
+            <div class="form-link">
+              <span>
+                Already have an account?
+                <a href="../Login form/index.html" class="signup-link"
+                  >Login</a
+                ></span
+              >
+            </div>
+          </form>
+        </div>
+      </div>
+    </section>
+  </body>
+  <footer>
+    <p>Copyright ©2019 CSUS. All Rights Reserved.</p>
+  </footer>
+  <script type="module">
+    // Import the functions you need from the SDKs you need
+    import { initializeApp } from "https://www.gstatic.com/firebasejs/10.5.2/firebase-app.js";
+    // TODO: Add SDKs for Firebase products that you want to use
+    // https://firebase.google.com/docs/web/setup#available-libraries
+    import {
+      getAuth,
+      createUserWithEmailAndPassword,
+      signInWithEmailAndPassword,
+    } from "https://www.gstatic.com/firebasejs/10.5.2/firebase-auth.js";
+
+    // Your web app's Firebase configuration
+    const firebaseConfig = {
+      apiKey: "AIzaSyBAJQ252CB1HqMxuCJ7BxC_pjwlJEQXu3A",
+      authDomain: "savias-c1f4d.firebaseapp.com",
+      projectId: "savias-c1f4d",
+      storageBucket: "savias-c1f4d.appspot.com",
+      messagingSenderId: "514405589674",
+      appId: "1:514405589674:web:60f47a48ebe8063394a6d3",
+    };
+
+    // Initialize Firebase
+    const app = initializeApp(firebaseConfig);
+    const auth = getAuth();
+
+    // Registration function
+    function register(email, password) {
+      createUserWithEmailAndPassword(auth, email, password)
+        .then((userCredential) => {
+          // Signed in
+          const user = userCredential.user;
+          console.log(user);
+          //
+          alert("User created successfully");
+        })
+        .catch((error) => {
+          const errorCode = error.code;
+          const errorMessage = error.message;
+          console.log(errorCode, errorMessage);
+          // ..
+        });
+    }
+
+    function validatePassword(password) {
+      // Password must be at least 8 characters long
+      if (password.length < 6) {
+        console.log("Password must be at least 6 characters long", password);
+        return false;
+      }
+
+      // Password is valid
+      return true;
+    }
+
+    function validateEmail(email) {
+      // Email must be valid
+      if (!email.includes("@")) {
+        console.log("Email must be valid", email);
+        return false;
+      }
+
+      // Email is valid
+      return true;
+    }
+
+    //  validating fields
+    function validateForm(
+      email,
+      password,
+      firstName,
+      lastName,
+      confirmPassword
+    ) {
+      // Validate email and password
+      if (!validateEmail(email) || !validatePassword(password)) {
+        alert("Invalid email or password");
+        return false;
+      }
+
+      // Validate first and last name
+      if (firstName.trim() === "" || lastName.trim() === "") {
+        alert("Invalid first or last name");
+        return false;
+      }
+
+      // Validate confirm password
+      if (password !== confirmPassword) {
+        alert("Passwords do not match");
+        return false;
+      }
+
+      // Form is valid
+      return true;
+    }
+    const signupButton = document.getElementById("signup-btn");
+
+    signupButton.addEventListener("click", () => {
+      const emailSignup = document.getElementById("email-signup").value;
+      const passwordSignup = document.getElementById("password-signup").value;
+      const firstNameSignup = document.getElementById("firstName-signup").value;
+      const lastNameSignup = document.getElementById("lastName-signup").value;
+      const confirmPasswordSignup = document.getElementById(
+        "confirmPassword-signup"
+      ).value;
+
+      if (
+        validateForm(
+          emailSignup,
+          passwordSignup,
+          firstNameSignup,
+          lastNameSignup,
+          confirmPasswordSignup
+        )
+      ) {
+        // console.log(
+        //   emailSignup,
+        //   passwordSignup,
+        //   firstNameSignup,
+        //   lastNameSignup,
+        //   confirmPasswordSignup
+        // );
+        if (passwordSignup === confirmPasswordSignup) {
+          register(emailSignup, passwordSignup);
+        } else {
+          alert("Passwords do not match");
+        }
+      } else {
+        alert("Invalid form");
+      }
+    });
+  </script>
+</html>
