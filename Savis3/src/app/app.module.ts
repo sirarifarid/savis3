@@ -8,6 +8,7 @@ import { LoginComponent } from './components/login/login.component';
 import { SignupComponent } from './components/signup/signup.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { RouterModule } from '@angular/router';
+import { VarianceChartComponent } from './components/variance/variance-chart.component';
 
 @NgModule({
   declarations: [
@@ -15,6 +16,7 @@ import { RouterModule } from '@angular/router';
     OneProportionComponent,
     LoginComponent,
     SignupComponent,
+    VarianceChartComponent,
   ],
   imports: [
     BrowserModule,
