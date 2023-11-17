@@ -9,6 +9,16 @@ import { SignupComponent } from './components/signup/signup.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { RouterModule } from '@angular/router';
 import { CalculationService } from './features/one-proportion/service/calculcation.service';
+import { TwoProportionsComponent } from './features/two-proportions/two-proportions.component';
+import { OneMeanComponent } from './features/one-mean/one-mean.component';
+import { TwoMeansComponent } from './features/two-means/two-means.component';
+import { OneMeanCIComponent } from './features/one-mean-ci/one-mean-ci.component';
+import { TwoMeansCIComponent } from './features/two-means-ci/two-means-ci.component';
+import { TwoProportionsCIComponent } from './features/two-proportions-ci/two-proportions-ci.component';
+import { OneProportionCIComponent } from './features/one-proportion-ci/one-proportion-ci.component';
+import { LinearRegressionComponent } from './features/linear-regression/linear-regression.component';
+import { BivariantComponent } from './features/bivariant/bivariant.component';
+import { CorrelationComponent } from './features/correlation/correlation.component';
 
 @NgModule({
   declarations: [
@@ -16,6 +26,16 @@ import { CalculationService } from './features/one-proportion/service/calculcati
     OneProportionComponent,
     LoginComponent,
     SignupComponent,
+    TwoProportionsComponent,
+    OneMeanComponent,
+    TwoMeansComponent,
+    OneMeanCIComponent,
+    TwoMeansCIComponent,
+    TwoProportionsCIComponent,
+    OneProportionCIComponent,
+    LinearRegressionComponent,
+    BivariantComponent,
+    CorrelationComponent,
   ],
   imports: [
     BrowserModule,
