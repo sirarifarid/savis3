@@ -13,6 +13,7 @@ import { OneProportionCIComponent } from './features/one-proportion-ci/one-propo
 import { LinearRegressionComponent } from './features/linear-regression/linear-regression.component';
 import { BivariantComponent } from './features/bivariant/bivariant.component';
 import { CorrelationComponent } from './features/correlation/correlation.component';
+import { HomepageComponent } from './components/homepage/homepage.component';
 
 export const routes: Routes = [
   { path: '', redirectTo: '/login', pathMatch: 'full' },
@@ -29,6 +30,7 @@ export const routes: Routes = [
   { path: 'linearRegression', component: LinearRegressionComponent },
   { path: 'bivariant', component: BivariantComponent },
   { path: 'correlation', component: CorrelationComponent },
+  { path: 'homepage', component: HomepageComponent }
 ];
 
 @NgModule({

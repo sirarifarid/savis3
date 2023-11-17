@@ -19,6 +19,7 @@ import { OneProportionCIComponent } from './features/one-proportion-ci/one-propo
 import { LinearRegressionComponent } from './features/linear-regression/linear-regression.component';
 import { BivariantComponent } from './features/bivariant/bivariant.component';
 import { CorrelationComponent } from './features/correlation/correlation.component';
+import { HomepageComponent } from './components/homepage/homepage.component';
 
 @NgModule({
   declarations: [
@@ -36,6 +37,7 @@ import { CorrelationComponent } from './features/correlation/correlation.compone
     LinearRegressionComponent,
     BivariantComponent,
     CorrelationComponent,
+    HomepageComponent,
   ],
   imports: [
     BrowserModule,
