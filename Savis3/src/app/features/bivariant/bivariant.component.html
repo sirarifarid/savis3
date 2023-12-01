@@ -1,1 +1,45 @@
-<p>bivariant works!</p>
+<!-- <p2>Bivariant works</p2> -->
+<div style="display: block">
+    <canvas baseChart [datasets]="barChartData" [labels]="barChartLabels" [options]="barChartOptions"
+      [legend]="barChartLegend" [chartType]="barChartType" [plugins]="barChartPlugins"></canvas>
+  </div>
+  
+  <div style="margin-top: 20px;">
+    <!-- <button (click)="ngOnInit()">Analyze Data</button> -->
+  </div>
+  
+  <div *ngIf="mean !== undefined && median !== undefined">
+    <p>Mean: {{ mean }}</p>
+    <p>Median: {{ median }}</p>
+  </div>
+  
+  <div *ngIf="range !== undefined && interquartileRange !== undefined && variance !== undefined && standardDeviation !== undefined">
+    <p>Range: {{ range }}</p>
+    <p>Interquartile Range: {{ interquartileRange }}</p>
+    <p>Variance: {{ variance }}</p>
+    <p>Standard Deviation: {{ standardDeviation }}</p>
+  </div>
+  
+  <div *ngIf="skewness !== undefined && kurtosis !== undefined">
+    <p>Skewness: {{ skewness }}</p>
+    <p>Kurtosis: {{ kurtosis }}</p>
+  </div>
+  
+  <div *ngIf="outliers.length > 0">
+    <p>Outliers: {{ outliers.join(', ') }}</p>
+  </div>
+  
+  <div *ngIf="modality !== ''">
+    <p>Modality: {{ modality }}</p>
+  </div>
+  
+  <div *ngIf="shapeInfo !== ''">
+    <p>Shape: {{ shapeInfo }}</p>
+  </div>
+  
+  <div *ngIf="userThreshold !== undefined && userCutpoint !== undefined">
+    <p>User-defined Threshold: {{ userThreshold }}</p>
+    <p>User-defined Cutpoint: {{ userCutpoint }}</p>
+    <p>{{ thresholdInfo }}</p>
+  </div>
+  
