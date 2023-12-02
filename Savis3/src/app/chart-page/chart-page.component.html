@@ -1,0 +1,97 @@
+<!-- 1st part -->
+<section class="hypothesis-section">
+  <h3>Two Means Hypothesis Testing</h3>
+  <div class="main-hypothesis">
+    <div class="sample-data">
+      <h4>1. Enter Data</h4>
+      <label class="select">
+        <select>
+          <option value="sample-1">Sample 1</option>
+          <option value="sample-2">Sample 1</option>
+        </select>
+      </label>
+      <textarea
+        placeholder="Enter or Drop CSV with first column as group number (1 or 2) and second column as variable. No colunm names (see sample data in drop down menu)
+          "
+      ></textarea>
+      <div class="btn-group">
+        <button class="btn flex-1">Load Data</button>
+        <button class="icon-btn tooltip">
+          <span class="tooltiptext">Reset</span>
+          <iconify-icon icon="ant-design:reload-outlined"></iconify-icon>
+        </button>
+        <button class="icon-btn tooltip">
+          <span class="tooltiptext">Upload Data File</span>
+          <iconify-icon icon="ic:sharp-upload"></iconify-icon>
+        </button>
+      </div>
+      <ul>
+        <li><b>Size n (Group 1):</b> NaN</li>
+        <li><b>Mean 1 (Group 1):</b> NaN</li>
+        <li><b>Size 1 (Group 2):</b> NaN</li>
+        <li><b>Mean 2 (Group 2):</b> NaN</li>
+        <li><b>Difference of Means (Mean 1 - Mean 2):</b> NaN</li>
+      </ul>
+    </div>
+    <app-chart-test class="chart"></app-chart-test>
+  </div>
+</section>
+
+<!-- 2nd part -->
+<section class="hypothesis-section">
+  <div class="main-hypothesis">
+    <div class="sample-data">
+      <h4>2. Run Simulations</h4>
+      <h5 class="caption"># of Simulations</h5>
+      <input type="number" placeholder="Enter number" />
+      <div class="btn-group">
+        <button class="btn flex-1">Run Simulation</button>
+      </div>
+      <ul>
+        <li><b>Mean of Randomized Sample to Group 1:</b> NaN</li>
+        <li><b>Mean of Randomized Sample to Group 2:</b> NaN</li>
+        <li><b>Difference of Means (Randomized Samples):</b> NaN</li>
+      </ul>
+    </div>
+    <div class="chart-wrapper">
+      <h4>Most Recent Draw</h4>
+      <app-chart-test class="chart"></app-chart-test>
+    </div>
+  </div>
+</section>
+
+<!-- 3rd part -->
+<section class="hypothesis-section">
+  <div class="main-hypothesis">
+    <div class="sample-data">
+      <h4>3. Sampling Distribution of Difference of Means</h4>
+
+      <label class="select" data-disable="true">
+        <select>
+          <option value="sample-1">Type of test</option>
+          <option value="sample-2">Sample 1</option>
+        </select>
+      </label>
+      <input
+        type="number"
+        data-disable="true"
+        placeholder="Enter number"
+        value="20"
+      />
+      <ul>
+        <li><b>Original Dataset Difference of Means:</b> NaN</li>
+        <li><b>Mean of Sample Differences:</b> NaN</li>
+        <li><b>Standard Deviation:</b> NaN</li>
+      </ul>
+    </div>
+
+    <app-chart-test class="chart"></app-chart-test>
+  </div>
+</section>
+<div class="sample-data total-ul">
+  <ul>
+    <li><b>Total # samples:</b> NaN</li>
+    <li><b># of Extreme Differences:</b> NaN</li>
+    <li><b>Proportion of Extreme Differences:</b> NaN</li>
+  </ul>
+</div>

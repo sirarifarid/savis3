@@ -25,6 +25,9 @@ import { ChartsModule } from 'ng2-charts';
 import { CsvFileUploadComponent } from './components/csv-file-upload/csv-file-upload.component';
 import { AboutComponent } from './components/about/about.component';
 import { environment } from 'src/environments/environment';
+import { ChartTestComponent } from './chart-test/chart-test.component';
+import { ChartPageComponent } from './chart-page/chart-page.component';
+import { NgApexchartsModule } from 'ng-apexcharts';
 
 @NgModule({
   declarations: [
@@ -36,6 +39,7 @@ import { environment } from 'src/environments/environment';
     OneMeanComponent,
     TwoMeansComponent,
     OneMeanCIComponent,
+    NgApexchartsModule,
     TwoMeansCIComponent,
     TwoProportionsCIComponent,
     OneProportionCIComponent,
@@ -46,6 +50,8 @@ import { environment } from 'src/environments/environment';
     ScatterPlotComponent,
     CsvFileUploadComponent,
     AboutComponent,
+    ChartTestComponent,
+    ChartPageComponent,
   ],
   imports: [
     BrowserModule,
@@ -54,11 +60,9 @@ import { environment } from 'src/environments/environment';
     ReactiveFormsModule,
     RouterModule.forRoot(routes, { enableTracing: true }),
     AngularFireModule.initializeApp(environment.firebaseConfig),
-    ChartsModule
+    ChartsModule,
   ],
-  providers: [
-    CalculationService
-  ],
-  bootstrap: [AppComponent]
+  providers: [CalculationService],
+  bootstrap: [AppComponent],
 })
-export class AppModule { }
+export class AppModule {}
